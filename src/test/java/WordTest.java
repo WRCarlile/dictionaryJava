@@ -5,7 +5,7 @@ public class WordTest {
   @After
   public void tearDown() {
     Word.clear();
-    // Define.clear();
+    Define.clear();
   }
 
   @Test

@@ -20,26 +20,19 @@ public class Word {
   }
 
 
-    public static void clear() {
-      dictionary.clear();
+  public static void clear() {
+    dictionary.clear();
+  }
+
+  public int getId() {
+    return mId;
+  }
+
+  public static Word find(int id) {
+    try {
+      return dictionary.get(id - 1);
+    } catch (IndexOutOfBoundsException e) {
+      return null;
     }
-
-    public int getId() {
-      return mId;
-    }
-
-    public static Word find(int id) {
-      try {
-        return dictionary.get(id - 1);
-      } catch (IndexOutOfBoundsException e) {
-        return null;
-      }
-    }
-
-
-
-
-
-
-
+  }
 }
