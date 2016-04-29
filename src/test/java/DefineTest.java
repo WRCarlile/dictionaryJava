@@ -10,39 +10,39 @@ public class DefineTest {
 
   @Test
   public void word_instantiatesCorrectly_true() {
-    Define testDefine = new Define("Banana");
+    Define testDefine = new Define("banana definition");
     assertEquals(true, testDefine instanceof Define);
   }
   public void word_wordInstantiatesWithName_Banana() {
-    Define testDefine = new Define("Banana");
-    assertEquals("Banana", testDefine.getDefine());
+    Define testDefine = new Define("banana definition");
+    assertEquals("banana definition", testDefine.getDefine());
   }
 
   @Test
   public void all_returnsInstancesOfTheDefinitionArray_true() {
-    Define firstDefine = new Define("Banana");
-    Define secondDefine = new Define("Apple");
+    Define firstDefine = new Define("banana definition");
+    Define secondDefine = new Define("apple definition");
     assertTrue(Define.all().contains(firstDefine));
     assertTrue(Define.all().contains(secondDefine));
   }
 
   @Test
   public void clear_emptiesAllDefinesFromDefinition_0() {
-    Define testDefine = new Define("Banana");
+    Define testDefine = new Define("banana definition");
     Define.clear();
     assertEquals(Define.all().size(), 0);
   }
 
   @Test
   public void getId_wordsInstantiateWithAnId_1() {
-    Define testDefine = new Define("Banana");
+    Define testDefine = new Define("banana definition");
     assertEquals(1, testDefine.getId());
   }
 
   @Test
   public void find_returnsDefineWithSameId_secondDefine() {
-    Define firstDefine = new Define("Banana");
-    Define secondDefine = new Define("Apple");
+    Define firstDefine = new Define("banana definition");
+    Define secondDefine = new Define("apple definition");
     assertEquals(Define.find(secondDefine.getId()), secondDefine);
   }
 
