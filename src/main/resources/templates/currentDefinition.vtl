@@ -1,0 +1,12 @@
+<h1>$taskName (added: $timeMade)</h1>
+
+#if($task.isCompleted())
+<h2> is completed </h2>
+<a href="/currentTask/$task.getId()/uncomplete"> complete it</a>
+#else
+<h2> is not complete </h2>
+<a href="/currentTask/$task.getId()/complete"> complete it</a>
+#end
+
+
+<a href="/">Go Back</a>
