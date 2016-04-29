@@ -13,8 +13,23 @@ public class WordTest {
     Word testWord = new Word("Banana");
     assertEquals(true, testWord instanceof Word);
   }
-  public void word_wordInstantiaesWithName_Banana() {
+  public void word_wordInstantiatesWithName_Banana() {
     Word testWord = new Word("Banana");
     assertEquals("Banana", testWord.getWord());
+  }
+
+  @Test
+  public void all_returnsInstancesOfTheDictionaryArray_true() {
+    Word firstWord = new Word("Banana");
+    Word secondWord = new Word("Apple");
+    assertTrue(Word.all().contains(firstWord));
+    assertTrue(Word.all().contains(secondWord));
+  }
+
+  @Test
+  public void clear_emptiesAllWordsFromDictionary_0() {
+    Word testWord = new Word("Banana");
+    Word.clear();
+    assertEquals(Word.all().size(), 0);
   }
 }
