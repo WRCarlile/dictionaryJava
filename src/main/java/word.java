@@ -1,8 +1,23 @@
 import java.util.ArrayList;
 
-public class Category {
-  private String mName;
-  private static ArrayList<Category> instances = new ArrayList<Category>();
+public class Word {
+  private String mWord;
+  private static ArrayList<Word> wordArray = new ArrayList<Word>();
   private int mId;
-  private ArrayList<Task> mTasks;
+
+	public Word(String word) {
+		mWord = word;
+	}
+
+	public String getWord() {
+		return mWord;
+	}
+
+	
+
+
+
+
+
+
 }

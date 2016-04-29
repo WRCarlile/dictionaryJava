@@ -17,5 +17,5 @@ public class App {
     //   return new ModelAndView(model, "templates/layout.vtl");
     // }, new VelocityTemplateEngine());
 
-
+  }
 }
