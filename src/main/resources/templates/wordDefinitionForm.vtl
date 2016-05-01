@@ -1,12 +1,12 @@
-<h1>Add a task to $category.getName()</h1>
+<h1>Add a Definition to $dictionary.getWord()</h1>
 
-<form action="/tasks" method="post">
-  <input id="categoryId" name="categoryId" type="hidden" value="$category.getId()">
+<form action="/definitions" method="post">
+  <input id="dictionaryId" name="dictionaryId" type="hidden" value="$dictionary.getId()">
 
   <div class="form-group">
-    <label for="description">Description</label>
-    <input id="description" name="description" type="text" class="form-control">
+    <label for="definition">Definition</label>
+    <input id="definition" name="definition" type="text" class="form-control">
   </div>
 
-  <button type="submit" class="btn btn-success">Add Task</button>
+  <button type="submit" class="btn btn-success">Add Definition</button>
 </form>

@@ -30,6 +30,15 @@ public class AppTest extends FluentTest {
 		  submit(".btn");
 		  assertThat(pageSource()).contains("Your word has been saved to the dictionary.");
 		}
+		@Test
+		public void dictionaryShowPageDisplaysDefinitions() {
+		  goTo("http://localhost:4567/dictionary/new");
+		  fill("#word").with("banana definition");
+		  submit(".btn");
+		  click("a", withText("View Dictionary"));
+		  click("a", withText("banana"));
+		  assertThat(pageSource()).contains("banana definition");
+		}
 
 
 
