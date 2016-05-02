@@ -31,13 +31,13 @@ public class AppTest extends FluentTest {
 		  assertThat(pageSource()).contains("Your word has been saved to the dictionary.");
 		}
 		@Test
-		public void dictionaryShowPageDisplaysDefinitions() {
+		public void dictionaryShowPageDisplaysWord() {
 		  goTo("http://localhost:4567/dictionary/new");
-		  fill("#word").with("banana definition");
+		  fill("#word").with("Banana");
 		  submit(".btn");
 		  click("a", withText("View Dictionary"));
-		  click("a", withText("banana"));
-		  assertThat(pageSource()).contains("banana definition");
+		  click("a", withText("Banana"));
+		  assertThat(pageSource()).contains("Banana");
 		}
 
 

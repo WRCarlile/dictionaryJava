@@ -31,17 +31,26 @@ public class App {
       return new ModelAndView(model, "templates/layout.vtl");
     }, new VelocityTemplateEngine());
 
-    get("/dictionary/", (request, response) -> {
+    get("/dictionary", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
       model.put("dictionary", Word.all());
-      model.put("template", "templates/dictionaryForm.vtl");
+      model.put("template", "templates/dictionary.vtl");
       return new ModelAndView(model, "templates/layout.vtl");
     }, new VelocityTemplateEngine());
 
+    get("/dictionary/:id", (request, response) -> {
+      HashMap<String, Object> model = new HashMap<String, Object>();
+      Word entry = Word.find(Integer.parseInt(request.params(":id")));
+      model.put("entry", entry);
+      model.put("template", "templates/word.vtl");
+      return new ModelAndView(model, "templates/layout.vtl");
+    }, new VelocityTemplateEngine());
+
+
     get("dictionary/:id/definitions/new", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
-      Word dictionary = Word.find(Integer.parseInt(request.params(":id")));
-      model.put("dictionarys", dictionary);
+      Word entry = Word.find(Integer.parseInt(request.params(":id")));
+      model.put("entry", entry);
       model.put("template", "templates/wordDefinitionForm.vtl");
       return new ModelAndView(model, "templates/layout.vtl");
     }, new VelocityTemplateEngine());
@@ -49,15 +58,15 @@ public class App {
     post("/definitions", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
 
-      Word dictionary = Word.find(Integer.parseInt(request.queryParams("dictionaryId")));
+      Word word = Word.find(Integer.parseInt(request.queryParams("dictionaryId")));
 
       String definition = request.queryParams("definition");
       Define newDefinition = new Define(definition);
 
-      dictionary.addDefine(newDefinition);
+      word.addDefine(newDefinition);
 
-      model.put("dictionary", dictionary);
-      model.put("template", "templates/category-tasks-success.vtl");
+      model.put("word", word);
+      model.put("template", "templates/definitionSuccess.vtl");
       return new ModelAndView(model, "templates/layout.vtl");
     }, new VelocityTemplateEngine());
 
