@@ -36,9 +36,9 @@ public class AppTest extends FluentTest {
 	  fill("#word").with("Banana");
 	  submit(".btn");
 	  click("a", withText("View Dictionary"));
-	  click("a", withText("Banana"));
 	  assertThat(pageSource()).contains("Banana");
 	}
+
   @Test
     public void goesToDefinitionPage() {
       goTo("http://localhost:4567/");
@@ -49,7 +49,6 @@ public class AppTest extends FluentTest {
       assertThat(pageSource()).contains("Banana");
       click("a", withText("Banana"));
       click("a", withText("Add a new definition"));
-      assertThat(pageSource()).contains("Add a definition to Banana");
+      assertThat(pageSource()).contains("Add a Definition to Banana");
     }
   }
-}
