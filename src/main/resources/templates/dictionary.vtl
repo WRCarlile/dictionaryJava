@@ -1,10 +1,7 @@
-<h1>$entry.getWord() definitions:</h1>
-
+<h1>All Words</h1>
 <ul>
-  #foreach($definition in $entry.getDefinitions())
-   <li>$definition.getDefinitions()</li>
+  #foreach ($entry in $dictionary)
+    <li><a href="/dictionary/$entry.getId()">$entry.getWord()</a></li>
   #end
 </ul>
-
-<a href="/dictionary/$entry.getId()/definitions/new">Add a new definition</a>
-<a href="/dictionary">All words</a>
+<a href="/dictionary/new">Add New Word</a>

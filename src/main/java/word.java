@@ -31,9 +31,10 @@ public class Word {
   public int getId() {
     return mId;
   }
+
   public void addDefine(Define define) {
-  mDefinitions.add(define);
-}
+    mDefinitions.add(define);
+  }
 
   public static Word find(int id) {
     try {
@@ -41,7 +42,5 @@ public class Word {
     } catch (IndexOutOfBoundsException e) {
       return null;
     }
-
-
   }
 }

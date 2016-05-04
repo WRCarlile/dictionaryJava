@@ -21,25 +21,35 @@ public class AppTest extends FluentTest {
 	  public void rootTest() {
 	    goTo("http://localhost:4567/");
 	    assertThat(pageSource()).contains("DIY Dictionary");
-	  }
-		@Test
-		public void wordIsCreatedTest() {
-		  goTo("http://localhost:4567/");
-		  click("a", withText("Add a New Word"));
-		  fill("#word").with("Banana");
-		  submit(".btn");
-		  assertThat(pageSource()).contains("Your word has been saved to the dictionary.");
-		}
-		@Test
-		public void dictionaryShowPageDisplaysWord() {
-		  goTo("http://localhost:4567/dictionary/new");
-		  fill("#word").with("Banana");
-		  submit(".btn");
-		  click("a", withText("View Dictionary"));
-		  click("a", withText("Banana"));
-		  assertThat(pageSource()).contains("Banana");
-		}
-
-
-
+  }
+	@Test
+	public void wordIsCreatedTest() {
+	  goTo("http://localhost:4567/");
+	  click("a", withText("Add a New Word"));
+	  fill("#word").with("Banana");
+	  submit(".btn");
+	  assertThat(pageSource()).contains("Your word has been saved to the dictionary.");
+	}
+	@Test
+	public void dictionaryShowPageDisplaysWord() {
+	  goTo("http://localhost:4567/dictionary/new");
+	  fill("#word").with("Banana");
+	  submit(".btn");
+	  click("a", withText("View Dictionary"));
+	  click("a", withText("Banana"));
+	  assertThat(pageSource()).contains("Banana");
+	}
+  @Test
+    public void goesToDefinitionPage() {
+      goTo("http://localhost:4567/");
+      click("a", withText("Add a New Word"));
+      fill("#word").with("Banana");
+      submit(".btn");
+      click("a", withText("View Dictionary"));
+      assertThat(pageSource()).contains("Banana");
+      click("a", withText("Banana"));
+      click("a", withText("Add a new definition"));
+      assertThat(pageSource()).contains("Add a definition to Banana");
+    }
+  }
 }
