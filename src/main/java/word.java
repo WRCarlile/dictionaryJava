@@ -4,13 +4,13 @@ public class Word {
   private String mWord;
   private static ArrayList<Word> dictionary = new ArrayList<Word>();
   private int mId;
-  private ArrayList<Define> mDefinitions;
+  private ArrayList<Definition> mDefinitions;
 
 	public Word(String word) {
 		mWord = word;
     dictionary.add(this);
     mId = dictionary.size();
-    mDefinitions = new ArrayList<Define>();
+    mDefinitions = new ArrayList<Definition>();
 	}
 
 	public String getWord() {
@@ -20,9 +20,9 @@ public class Word {
   public static ArrayList<Word> all() {
     return dictionary;
   }
-  public ArrayList<Define> getDefinitions() {
+  public ArrayList<Definition> getDefinitions() {
       return mDefinitions;
-    }
+  }
 
   public static void clear() {
     dictionary.clear();
@@ -32,8 +32,8 @@ public class Word {
     return mId;
   }
 
-  public void addDefine(Define define) {
-    mDefinitions.add(define);
+  public void addDefinition(Definition definition) {
+    mDefinitions.add(definition);
   }
 
   public static Word find(int id) {

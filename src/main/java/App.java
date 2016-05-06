@@ -58,8 +58,8 @@ public class App {
       HashMap<String, Object> model = new HashMap<String, Object>();
       Word entry = Word.find(Integer.parseInt(request.queryParams("dictionaryId")));
       String definition = request.queryParams("definition");
-      Define newDefinition = new Define(definition);
-      entry.addDefine(newDefinition);
+      Definition newDefinition = new Definition(definition);
+      entry.addDefinition(newDefinition);
       model.put("entry", entry);
       model.put("template", "templates/definitionSuccess.vtl");
       return new ModelAndView(model, "templates/layout.vtl");

@@ -50,5 +50,5 @@ public class AppTest extends FluentTest {
       click("a", withText("Banana"));
       click("a", withText("Add a new definition"));
       assertThat(pageSource()).contains("Add a Definition to Banana");
-    }
   }
+}

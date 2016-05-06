@@ -1,21 +1,21 @@
 import java.util.ArrayList;
 
-public class Define {
-  private String mDefine;
-  private static ArrayList<Define> definition = new ArrayList<Define>();
+public class Definition {
+  private String mDefinition;
+  private static ArrayList<Definition> definition = new ArrayList<Definition>();
   private int mId;
 
-	public Define(String word) {
-		mDefine = word;
+	public Definition(String word) {
+		mDefinition = word;
     definition.add(this);
     mId = definition.size();
 	}
 
-	public String getDefine() {
-		return mDefine;
+	public String getDefinition() {
+		return mDefinition;
 	}
 
-  public static ArrayList<Define> all() {
+  public static ArrayList<Definition> all() {
     return definition;
   }
 
@@ -28,7 +28,7 @@ public class Define {
     return mId;
   }
 
-  public static Define find(int id) {
+  public static Definition find(int id) {
     try {
       return definition.get(id - 1);
     } catch (IndexOutOfBoundsException e) {
